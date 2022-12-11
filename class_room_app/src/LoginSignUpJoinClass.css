@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+}
+.register, .createClassSection {
+    width: 80vw;
+    margin: 20vh auto auto auto;
+    align-items: center;
+    max-width: 500px;
+    background-color: #374785;
+    height: 400px;
+    color: #FBEEC1;
+}
+.form, .register, .createClassSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+.form {
+    width: 100%;
+}
+.loginSignUpInput, .joinClassInput, .assignmentFormInput {
+    width: 80%;
+    padding: 5px 5px 5px 5px;
+    border-radius: 3px;
+    border: none;
+}
+.joinClassInputSelect {
+    width: 82%;
+    padding: 5px 5px 5px 5px;
+    border-radius: 3px;
+    border: none;
+    outline: none
+}
+.loginSignUpInput:focus, .joinClassInput:focus, .joinClassInputSelect:focus, .assignmentFormInput:focus {
+    outline: 2px solid #FF652F;
+    border: none;
+}
+.loginSignUpRedirect {
+    width: fit-content;
+}
+.redirectLink {
+    text-decoration: none;
+    color: #FF652F;
+}
+.redirectLink:hover {
+    text-decoration: underline;
+    color: #C43300;
+}
+.signUpButtonInForm, .loginButtonInForm, .JoinClassButton, .assignmentFormButton {
+    background-color: #FF652F;
+    font-size: 1.2rem;
+    border: none;
+    color: #FBEEC1;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+}
+.signUpButtonInForm:hover, .loginButtonInForm:hover, .JoinClassButton:hover, .assignmentFormButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: #C43300;
+}
+.joinClassOption {
+    background-color: #374785;
+    color: #FBEEC1;
+    font-weight: bold;
+    font-size: 0.9rem;
+}

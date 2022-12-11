@@ -1,0 +1,78 @@
+.assignmentFormSection, .gradesFormSection, .remarksFormSection {
+    position: absolute;
+    width: 100vw;
+    background-color: #24305E;
+    top: 23vh;
+    left: 0;
+    height: 100%;
+}
+.gradesFormSection, .remarksFormSection {
+    width: 90vw;
+    max-width: 500px;
+    top: 50vh;
+    left: auto;
+    right: auto;
+    height: 200px;
+}
+.assignmentForm, .gradesRemarksForm {
+    position: relative;
+    width: fit-content;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.assignmentFormLabel {
+    display: block;
+    margin-bottom: 3px;
+}
+.assignmentFormInput {
+    width: 80vw;
+    max-width: 700px;
+}
+.assignmentFormButton {
+    width: 100px;
+}
+.assignmentFormButtonSection {
+    display: flex;
+    justify-content: space-around;
+}
+.assignmentFileInput {
+    display: none;
+}
+.assignmentFileLabel {
+    background-color: #FF652F;
+    color: #FBEEC1;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    width: fit-content;
+}
+.assignmentFileLabel:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: #C43300;
+}
+.gradesFormInput, .remarksFormInput {
+    width: 100%;
+    padding: 3px 3% 3px 3%;
+    border-radius: 3px;
+    border: none;
+}
+.gradesFormInput:focus, .remarksFormInput:focus {
+    outline: 2px solid #FF652F;
+    border: none;
+}
+.gradesSubmitButton, .remarksSubmitButton {
+    background-color: #FF652F;
+    border: none;
+    color: #FBEEC1;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: auto;
+}
+.gradesSubmitButton:hover, .remarksSubmitButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: #C43300;
+}

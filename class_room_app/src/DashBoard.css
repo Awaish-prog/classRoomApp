@@ -1,0 +1,87 @@
+.dashboard {
+    background-color: #24305E;
+    height: fit-content;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboardContent {
+    width: 90vw;
+    min-height: 80vh;
+    height: 80%;
+    background-color: #374785;
+    padding: 1vw 2vw 2vw 2vw;
+}
+.dashboardHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.buttons {
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+}
+.dashboardName{
+    margin: 0;
+    color: #F8E9A1;
+}
+.joinClassButton, .createClassButton {
+    margin: 0 1% 0 1%;
+    background-color: #F8E9A1;
+    align-self: center;
+    padding: 2% 5% 2% 5%;
+    border-radius: 20px;
+    width: 120px;
+    text-align: center;
+    color: #24305E;
+    white-space: nowrap;
+}
+.joinClassButton:hover, .createClassButton:hover {
+    background-color: #ccb74f;
+}
+.link {
+    text-decoration: none;
+}
+.classList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 2vw;
+}
+.class {
+    background-color: #17E9E0;
+    width: 150px;
+    border-radius: 10px;
+    transition: outline 0.2s ease-in;
+}
+.name, .role {
+    text-align: center;
+    margin: 0;
+    padding: 5% 0 5% 0;
+    color: #24305E;
+}
+.classLink {
+    text-decoration: none;
+}
+.class:hover {
+    outline: 5px solid #17E9E0;
+}
+
+@media (max-width: 600px) {
+    .dashboardHeader {
+        flex-direction: column;
+        align-items: center;
+        margin: 5px 0 20px 0;
+    }
+    .dashboardName {
+        margin: 10px 0 10px 0;
+    }
+}
+@media (max-width: 360px) {
+    .classList {
+        flex-direction: column;
+        align-items: center;
+    }
+}

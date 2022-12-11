@@ -1,0 +1,269 @@
+:root {
+    --headHeight: 12vh;
+}
+.classDetails {
+    display: flex;
+    background-color: #24305E;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+.headingSection, .memberAnnouncementButtons {
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    height: var(--headHeight);
+}
+.notificationIcon, .membersIcon {
+    width: 20px;
+    height: 26px;
+    display: block;
+    padding: 5px;
+    background-color: #FBEEC1;
+    margin: 0 5px 0 5px;
+    border-radius: 50%;
+}
+.redDotForNotification {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FF652F;
+    z-index: 10;
+    position: absolute;
+    margin: 0 23px 30px 0;
+}
+.redDotForNotificationDisplayNone {
+    display: none;
+}
+.memberAnnouncementButtons {
+    display: none;
+}
+.classContent {
+    display: flex;
+    justify-content: space-around;
+    background-color: #24305E;
+    width: 100vw;
+}
+.classMembers, .announcementsList, .assignmentsList {
+    display: flex;
+    flex-direction: column;
+    background-color: #374785;
+    padding: 1%;
+    margin: 55px 0 10px 0;
+    color: #FBEEC1;
+    height: fit-content;
+}
+.leaveClassButton {
+    background-color: #FF652F;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0;
+    color: #FBEEC1;
+}
+.classHeading {
+    font-size: 2rem;
+    color: #F8E9A1;
+    margin: 0;
+}
+.classHeadingSection {
+    display: flex;
+    justify-content: space-between;
+    width: 97vw;
+    align-items: center;
+    margin: 2vh 0 2vh 0;
+}
+.studentNames {
+    margin: 0 auto 0 0;
+    padding-right: 2vw;
+    display: inline-block;
+}
+.membersListItem {
+    padding: 3px 0 3px 0;
+    border-bottom: 1px solid bisque;
+}
+.classMembers {
+    width: fit-content;
+}
+.assignmentsList {
+    width: 50vw;
+}
+.studentListItem, .assignmentDetailInList {
+    display: flex;
+}
+.assignmentDetailInList {
+    margin: 15px 0 15px 0;
+}
+ul {
+    list-style: none;
+    margin: 0 0 15px 0;
+    padding-left: 0.7em;
+}
+.memberCategory, .removeButton {
+    margin: 0;
+    display: inline-block;
+}
+.removeButton {
+    background-color: #FF652F;
+    padding: 1px 3px 1px 3px;
+    border-radius: 5px;
+}
+.assignmentNameInList {
+    margin: 0 auto 0 0;
+}
+.postedByInList {
+    white-space: nowrap;
+    margin: 0;
+}
+.assignmentInList {
+    margin: 20px 0 20px 0;
+    padding: 10px;
+    background-color: #24305E;
+    border-radius: 8px;
+}
+.announcementsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 26vw;
+}
+.assignmentLink {
+    text-decoration: none;
+    color: #FBEEC1;
+}
+.assignmentLink:hover {
+    color: #F8E9A1;
+    text-decoration: underline;
+}
+.closeMemberListWindow {
+    margin: 0 0 0 auto;
+    font-size: 20px;
+}
+.closeAnnouncementsListWindow{
+    margin: 0 auto 0 0;
+    font-size: 20px;
+}
+.announcementListItems {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.announcementListItem {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    background-color: #24305E;
+    padding: 2%;
+}
+.announcementForm {
+    display: flex;
+    flex-direction: column;
+}
+.announcementInput {
+    margin: 5px 0 5px 0;
+    padding: 7px 5px 7px 5px;
+    border-radius: 5px;
+    border: 1px solid #24305E;
+}
+.announcementInput:focus {
+    outline: 1px solid #24305E;
+}
+.announcementDate {
+    font-size: 0.8rem;
+}
+.announcement {
+    font-size: 1.2rem;
+}
+.announcementDate, .announcement {
+    margin: 3px 0 3px 0;
+}
+.announcementSubmitButton, .announcementDeleteButton, .deleteAssignmentButton {
+    display: flex;
+    margin: 3px 0 3px 0;
+    padding: 3px 5px 3px 5px;
+    align-self: center;
+    border-radius: 5px;
+    background-color: #FF652F;
+    width: fit-content;
+}
+.announcementSubmitButton {
+    color: #F8E9A1;
+    border: none;
+}
+.announcementDeleteButton {
+    margin: 7px 0 7px 0;
+}
+.giveAssignmentButton {
+    background-color: #FF652F;
+    border: none;
+    font-family: inherit;
+    color: #FBEEC1;
+    margin-left: 2%;
+    padding: 5px 1.5% 5px 1.5%;
+    border-radius: 5px;
+}
+.deleteAssignmentButton:hover, .announcementDeleteButton:hover, .announcementSubmitButton:hover, .leaveClassButton:hover, .removeButton:hover, .giveAssignmentButton:hover {
+    background-color: #C43300;
+    cursor: pointer;
+    text-decoration: underline;
+}
+@media (max-width: 900px) {
+    .memberAnnouncementButtons {
+        display: flex;
+    }
+    .classMembers, .announcementsList {
+        display: none;
+    }
+    .assignmentsList {
+        width: 90vw;
+    }
+    .assignmentDetailInList{
+        flex-direction: column;
+    }
+    .classHeadingSection{
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+    }
+    .headingSection {
+        width: 90vw;
+    }
+    .memberAnnouncementButtons {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        justify-content: space-around;
+    }
+}
+.classMembersOnClick, .announcementsListOnClick {
+    display: flex;
+    position: fixed;
+    width: 90vw;
+    top: calc(var(--headHeight) + 5vh);
+    height: 100%;
+    animation: slideIn 0.3s ease-in;
+}
+.hideClassMembers, .hideAnnouncementsList {
+    display: flex;
+    position: fixed;
+    width: 90vw;
+    top: calc(var(--headHeight) + 5vh);
+    height: 100%;
+    animation: slideOut 0.3s ease-in forwards;
+}
+@keyframes slideIn {
+    from {
+        right: 100vw;
+    }
+    to {
+        right: 1vw;
+    }
+}
+@keyframes slideOut {
+    from {
+        right: 1vw;
+    }
+    to {
+        right: 100vw;
+    }
+}

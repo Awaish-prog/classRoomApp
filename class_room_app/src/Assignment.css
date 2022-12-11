@@ -1,0 +1,174 @@
+.assignmentPage {
+    display: flex;
+    width: 100vw;
+    background-color: #24305E;
+    height: 100vh;
+    justify-content: space-around;
+}
+.assignmentDetails {
+    width: 50%;
+}
+.submissionDetails {
+    width: 30%;
+}
+.submissionDetails, .assignmentDetails {
+    margin: 2%;
+    background-color: #374785;
+    border-radius: 2%;
+    padding: 1%;
+    height: fit-content;
+    color: #FBEEC1;
+}
+.gotoChatRoomLink {
+    text-decoration: none;
+    color: #FBEEC1;
+}
+.gotoChatRoom, .deleteSubmissionButton {
+    background-color: #FF652F;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+.assignementNameInDetails {
+    font-size: 2rem;
+}
+.assignmentDescriptionInDetails {
+    background-color: #24305E;
+    padding: 2%;
+    border-radius: 10px;
+}
+.studentSubmission {
+    background-color: #24305E;
+    padding: 10px;
+    margin: 0 0 10px 0;
+}
+.submittedFileLabel, .submittedOnValue {
+    font-size: 0.8rem;
+    margin: 0 0 3px 0;
+}
+.submittedFileName {
+    font-size: 1.5rem;
+    margin: 0 0 0px 0;
+    text-decoration: underline;
+    inline-size: 95%;
+    overflow-wrap: break-word;
+}
+.submittedFileNameText{
+    overflow-wrap: break-word;
+    margin: auto;
+}
+.submittedFileName:hover {
+    color: #C43300;
+    cursor: pointer;
+}
+.remarksSection {
+    background-color: #24305E;
+    padding: 10px 5px 10px 5px;
+}
+.remarksList {
+    padding-left: 7%;
+}
+.remarksHeading {
+    margin: 0;
+}
+.remarkInList {
+    border-bottom: 2px solid #FBEEC1;
+    margin: 0;
+    padding: 3px;
+}
+.gradesSection {
+    background-color: #24305E;
+    padding: 10px 5px 10px 5px;
+}
+.earnedGrades {
+    font-size: 2rem;
+}
+.earnedGradesTotalGrades {
+    margin: 0 0 0 8%;
+}
+.gardesSectionHeading {
+    margin: 0;
+}
+.assignmentFileName {
+    color: #FF652F;
+    text-decoration: underline;
+}
+.assignmentFileName:hover {
+    color: #C43300;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    html, body, #root {
+        background-color: #24305E;
+    }
+    .assignmentPage {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+    }
+    .assignmentDetails {
+        width: 80%;
+    }
+    .submissionDetails {
+        width: 80%;
+    }
+}
+.submissionFile {
+    display: none;
+}
+.fileUploadSection, .assignmentSubmitForm {
+    background-color: #24305E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0 5px 0;
+}
+.uploadButton, .assignmentSubmitButton, .uploadButtonText {
+    margin: 0;
+    white-space: nowrap;
+}
+.selectedFileName{
+    inline-size: 90%;
+    overflow-wrap: break-word;
+}
+.uploadButton, .assignmentSubmitButton {
+    background-color: #FF652F;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+    border-radius: 5px;
+}
+.uploadButton:hover, .assignmentSubmitButton:hover, .gotoChatRoom:hover, .deleteSubmissionButton:hover {
+    background-color: #C43300;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.submittersListItem {
+    display: flex;
+    flex-direction: column;
+}
+.nameInSubmittersListItem, .linkInSubmittersListItem, .submissionsLabel, .dateInSubmittersListItem {
+    margin: 0;
+    padding: 3px;
+    color: #FBEEC1;
+}
+.submissionsLabel, .nameInSubmittersListItem {
+    font-size: 1.3rem;
+}
+.dateInSubmittersListItem {
+    font-size: 0.8rem;
+}
+.linkInSubmittersListItem:hover {
+    color: #FF652F;
+}
+.submissionStatus {
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+.submissionStatusOnTime {
+    background-color: #228B22;
+}
+.submissionStatusLate {
+    background-color: #C43300;
+}

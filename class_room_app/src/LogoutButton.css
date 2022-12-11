@@ -1,0 +1,20 @@
+.logout {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5px 5px 10px auto;
+}
+.logoutButton {
+    background-color: #FF652F;
+    border: none;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #FBEEC1;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    margin: 5px 5px 0 0;
+}
+.logoutButton:hover {
+    background-color: #C43300;
+    cursor: pointer;
+    text-decoration: underline;
+}

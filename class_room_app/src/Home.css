@@ -1,0 +1,83 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+html, body, #root {
+    width: 100%;
+    height: 100%;
+    background-color: #24305E;
+}  
+.Home {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #24305E;
+}
+.header{
+    margin: 5% auto 0 auto;
+    background-color: #374785;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+.appName {
+    display: inline-block;
+    margin: 0 auto 0 auto;
+    font-size: 7vw;
+    padding: 10px 0 10px 0;
+    color: #F8E9A1;
+}
+.loginSignUp {
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+}
+.loginButton, .signUpButton {
+    display: inline-block;
+    margin: 0;
+    padding: 1% 2% 1% 2%;
+    font-size: 1.5rem;
+    width: 87px;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: #F8E9A1;
+    text-align: center;
+}
+.loginButton:hover, .signUpButton:hover {
+    background-color: #ccb74f;
+}
+.loginButtonLink, .signUpButtonLink {
+    text-decoration: none;
+}
+.loginButton {
+    margin: 1%  1% 1% auto;
+}
+.signUpButton {
+    margin: 1% auto 1% 1%;
+} 
+.featuresList {
+    display: flex;
+    justify-content: center;
+}
+.featuresListItems {
+    padding: 0;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 2vw;
+    color: #F8E9A1;
+}
+.featuresListItem {
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid #F8E9A1;
+}
+@media (max-width: 620px) {
+    .appName {
+        font-size: 2rem;
+    }
+    .featuresListItems {
+        font-size: 1rem;
+    }
+    .loginButton, .signUpButton {
+        font-size: 1.1rem;
+    }
+}

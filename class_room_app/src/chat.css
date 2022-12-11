@@ -1,0 +1,86 @@
+.chatSection {
+    background-color: #24305E;
+    width: 100vw;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    color: #FBEEC1;
+}
+.chatMessageSection {
+    width: fit-content;
+    max-width: 80%;
+    padding: 0.5%;
+    border-radius: 10px;
+}
+.chatMessageSectionAlignLeft {
+    margin: 0.5% 1% 0.5% 1%;
+}
+.chatMessageSectionAlignRight {
+    margin: 0.5% 1% 0.5% auto;
+}
+.chatMessage {
+    background-color: #374785;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+.senderName, .chatMessage, .dateofSending {
+    margin: 0;
+}
+.senderName, .dateofSending {
+    font-size: 0.9rem;
+    padding: 0 3px 0 3px;
+}
+.currentSenderName, .currentDateOfSending {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.sendMessageForm {
+    position: fixed;
+    display: flex;
+    top: 92%;
+    background-color: #24305E;
+    width: 100vw;
+    height: 7.5vh;
+    z-index: 10;
+    align-items: center;
+}
+.messageTextInForm {
+    width: 92%;
+    padding: 10px 0.5% 10px 1.5%;
+    margin: 0.5% 0 0.5% 1%;
+    border-radius: 20px;
+    border: none;
+}
+.messageTextInForm:focus {
+    outline: none;
+}
+.sendMessageButton {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 15px 10px 15px;
+    margin: 0.5%;
+    background-color: #FF652F;
+    border-radius: 20px;
+    color: #FBEEC1;
+}
+.sendMessageButton:hover {
+    background-color: #C43300;
+    cursor: pointer;
+    text-decoration: underline;
+}
+::-webkit-scrollbar {
+    width: 0.8em;
+}
+   
+::-webkit-scrollbar-track {
+    background-color: #24305E;
+}
+   
+::-webkit-scrollbar-thumb {
+    background-color: #374785;
+    border-radius: 10px;
+}
