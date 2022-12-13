@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./ClassDashboard.css"
-import "./popUpForms.css"
+import "../css/ClassDashboard.css"
+import "../css/popUpForms.css"
 export default function AssignmentsList({ role, currentClass, currentUser, token }){
     const location = useLocation()
     const [ selectedFile, setSelectedFile ] = useState(null)
@@ -15,10 +15,11 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
     function toggelShowForm(){
         showAssignemntForm === true ? setShowAssignemntForm(false) : setShowAssignemntForm(true)
     }
+    /* This function gets all assignments given in this class */
     async function getAssigmentsList(){
         const currClass = currentClass
         if(currClass !== null){
-            let response = await fetch("http://192.168.0.102:4000/api/getAssignmentsList", {
+            let response = await fetch("http://localhost:4000/api/getAssignmentsList", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -35,6 +36,7 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
     function uploadHandle(e){
         setSelectedFile(e.target.files[0]);
     }
+    /* This function posts a new assignment to the server */
     async function handlePost(e){
         e.preventDefault();
         const data = new FormData();
@@ -45,7 +47,7 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
         data.append("dueDate", dueDate);
         data.append("currentUser", currentUser);
         data.append("currentClass", currentClass);
-        await fetch("http://192.168.0.102:4000/api/postAssignment", {
+        await fetch("http://localhost:4000/api/postAssignment", {
             method: "POST",
             headers: {
                 "x-access-token": token,
@@ -60,11 +62,12 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
         setShowAssignemntForm(false)
         setUpdateList(true)
     } 
+    /* This function sends request to delete this assignment to the server */
     async function deleteThisAssignment(assignmentName){
         setAssignmentsList((prevAssignmentsList) => {
             return prevAssignmentsList.filter(prevAssignment => prevAssignment.assignmentName !== assignmentName);
         })
-        await fetch("http://192.168.0.102:4000/api/deleteAssignment", {
+        await fetch("http://localhost:4000/api/deleteAssignment", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

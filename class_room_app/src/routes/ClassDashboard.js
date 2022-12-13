@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Announcements from "./Announcements";
 import AssignmentsList from "./AssignmentsList";
 import LogoutButton from "./LogoutButton.js"
-import "./ClassDashboard.css"
-import notificationIcon from "./81c46629b9429e456dfa456e33f27660.png"
-import membersIcon from "./983470-200.png"
+import "../css/ClassDashboard.css"
+import notificationIcon from "../images/81c46629b9429e456dfa456e33f27660.png"
+import membersIcon from "../images/983470-200.png"
 export default function Classdashboard(){
     const [ teachers, setTeachers ] = useState([]);
     const [ students, setStudents ] = useState([]);
@@ -16,8 +16,9 @@ export default function Classdashboard(){
     const [ hideAnnouncementsList, setHideAnnouncementsList ] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    /* This function gets list of all class members */
     async function getMembersList(currClass, currentUser){
-        let response = await fetch("http://192.168.0.102:4000/api/getMemberslist", {
+        let response = await fetch("http://localhost:4000/api/getMemberslist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,13 +33,14 @@ export default function Classdashboard(){
         setStudents(response.students);
         setRole(response.currentRole);
     }
+    /* This functions removes a user from the classrom */
     async function leaveClassRoom(leavingUser, role = ""){
         const currentUser =  location.state.currentUser;
         const currentClass = location.state.currentClass;
         setStudents((prev) => {
             return prev.filter(student => student.student.email !== leavingUser);
         })
-        const response = await fetch("http://192.168.0.102:4000/api/leaveClassRoom", {
+        const response = await fetch("http://localhost:4000/api/leaveClassRoom", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

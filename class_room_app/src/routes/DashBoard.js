@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./DashBoard.css"
+import "../css/DashBoard.css"
 import LogoutButton from "./LogoutButton.js"
 
 export default function DashBoard(){
@@ -10,7 +10,7 @@ export default function DashBoard(){
     const location = useLocation();
     async function getClasslist(currUser){
         
-        let response = await fetch("http://192.168.0.102:4000/api/getClassList", {
+        let response = await fetch("http://localhost:4000/api/getClassList", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

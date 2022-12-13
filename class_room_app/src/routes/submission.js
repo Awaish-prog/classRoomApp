@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
 import download from 'downloadjs';
 import LogoutButton from "./LogoutButton.js"
-import "./submission.css"
-import "./popUpForms.css"
+import "../css/submission.css"
+import "../css/popUpForms.css"
 export default function Submission(){
     const navigate = useNavigate()
     const [ submittedFile, setSubmittedFile] = useState("");
@@ -14,6 +14,7 @@ export default function Submission(){
     const [ remarksList, setRemarksList ] = useState([]);
     const [ givenGrades, setGivenGrades ] = useState(0);
     const location = useLocation();
+    /* This fuctions sends request to download the file uplaoded by the student */
     async function handleDownload(fileName, endPoint){
         const currentUser = location.state.currentUser
         const res = await fetch(`http://192.168.0.102:4000/api/${endPoint}`, {
@@ -29,6 +30,7 @@ export default function Submission(){
         const blob = await res.blob();
         download(blob, fileName);
     }
+    /* This function gets details of the submission */
     async function getSubmissionDetails(){
         const currClass = location.state.currentClass;
         const assignmentName = location.state.assignmentName;
@@ -86,7 +88,7 @@ export default function Submission(){
         const email = location.state.submitterEmail;
         const currentUser = location.state.currentUser
         setGivenGrades(grades);
-        await fetch("http://192.168.0.102:4000/api/setGrades", {
+        await fetch("http://localhost:4000/api/setGrades", {
             method: "POST",
             headers : {
                 "Content-Type": "application/json",

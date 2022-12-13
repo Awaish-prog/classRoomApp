@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState} from "react";
-import "./LoginSignUpJoinClass.css"
+import "../css/LoginSignUpJoinClass.css"
 export default function SignUp(){
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ export default function SignUp(){
     async function signUpUser(e){
         
         e.preventDefault();
-        const response = await fetch("http://192.168.0.102:4000/api/signUpUser", {
+        const response = await fetch("http://localhost:4000/api/signUpUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

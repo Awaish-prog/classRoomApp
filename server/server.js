@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const fs = require('fs');
 const io = require("socket.io")(8080, {
     cors: {
-        origin: ["http://192.168.0.102:4000"]
+        origin: ["http://localhost:3000"]
     }
 });
 app.use(cors());
@@ -18,7 +18,7 @@ app.use(express.json());
 let bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+// Setting up multer to store files
 const storage = multer.diskStorage({
     destination: function (req, file, cb){
         cb(null, 'public')
@@ -38,8 +38,10 @@ const submissions = multer.diskStorage({
     }
 })
 const submission = multer({ storage: submissions }).single("file");
+// connect to mongodb locally
 mongoose.connect("mongodb://localhost:27017/Users");
 
+// This function will authenticate user with json web token
 function verifyUser(token, user){
     if(token == undefined || !user){
         return false;
@@ -57,6 +59,7 @@ function verifyUser(token, user){
         return false;
     }
 }
+
 app.post("/api/signUpUser", async (req, res) => {
     req.body.email = req.body.email.toLowerCase();
     if(await User.findOne({email: req.body.email})){
@@ -136,6 +139,7 @@ app.post("/api/getMembersList", async (req, res) => {
     let users = await User.where("classes.className").equals(req.body.currClass);
     const currentClass = currentUser.classes.find(Class => Class.className === req.body.currClass);
     let currentRole = null;
+    // making users array null if user who is making request is not part of the class
     if(!currentClass){
         users = null;
     }

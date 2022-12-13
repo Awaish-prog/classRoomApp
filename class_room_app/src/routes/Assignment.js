@@ -2,19 +2,20 @@ import { useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import download from 'downloadjs';
 import LogoutButton from "./LogoutButton.js"
-import "./Assignment.css"
+import "../css/Assignment.css"
 export default function Assignemnt(){
     const navigate = useNavigate()
-    const [ assignmentDetails, setAssignmentDetails ] = useState({assignmentName: "", description: "", maxGrades: "", action: "", dueDate : "", postedOn:"", postedBy: "", fileName: "", submissionDetails: {submittedFile: "", remarks: [], grades: "Not graded yet"}, submittersList: []});
-    const [ selectedFile, setSelectedFile ] = useState(null);
+    const [ assignmentDetails, setAssignmentDetails ] = useState({assignmentName: "", description: "", maxGrades: "", action: "", dueDate : "", postedOn:"", postedBy: "", fileName: "", submissionDetails: {submittedFile: "", remarks: [], grades: "Not graded yet"}, submittersList: []}); 
+    const [ selectedFile, setSelectedFile ] = useState(null); 
     const [ lateSubmission, setLateSubmission ] = useState(false);
     const [ fileUploaded , setFileUploaded ] = useState(false)
     const location = useLocation();
+    /* This function will get details of the assignment */
     async function getAssignmentDetails(){
         const assignmentName = location.state.assignmentName;
         const currClass = location.state.currentClass;
         const currUser = location.state.currentUser;
-        let details = await fetch("http://192.168.0.102:4000/api/getAssignmentDetails", {
+        let details = await fetch("http://localhost:4000/api/getAssignmentDetails", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -28,9 +29,10 @@ export default function Assignemnt(){
         setAssignmentDetails(details.assignmentDetails);
         setLateSubmission(details.assignmentDetails.submissionDetails.lateSubmission)
     }
+    /* This function will send a request to download a assignment file */
     async function handleDownload(fileName, endPoint){
         const currentUser = location.state.currentUser;
-        const res = await fetch(`http://192.168.0.102:4000/api/${endPoint}`, {
+        const res = await fetch(`http://localhost:4000/api/${endPoint}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,12 +45,13 @@ export default function Assignemnt(){
         const blob = await res.blob();
         download(blob, fileName);
     }
+    /* This function sends request to delete submission done by the student */
     async function deleteThisSubmission(submittedFile){
         setAssignmentDetails((prev) => {
             return {...prev, submissionDetails: {submittedFile: "", remarks: [], grades: "Not graded yet"}};
         })
         const currentUser = location.state.currentUser;
-        await fetch("http://192.168.0.102:4000/api/deleteThisSubmission", {
+        await fetch("http://localhost:4000/api/deleteThisSubmission", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -63,6 +66,7 @@ export default function Assignemnt(){
         setSelectedFile(e.target.files[0]);
         setFileUploaded(false)
     }
+    /* This function sends submission details to the server and posts it */
     async function handlePost(e){
         if(selectedFile === null){
             setFileUploaded(true);
@@ -82,7 +86,7 @@ export default function Assignemnt(){
         data.append("currentUser", currUser);
         data.append("assignmentName", assignmentName);
         data.append("className", currClass);
-        let response = await fetch("http://192.168.0.102:4000/api/postSubmission", {
+        let response = await fetch("http://localhost:4000/api/postSubmission", {
             method: "POST",
             headers: {
                 "x-access-token": location.state.token,
@@ -101,6 +105,7 @@ export default function Assignemnt(){
     }, [])
     return(<>
     <LogoutButton email = {location.state.currentUser} />
+    {/* section below contains details of the assignment */}
     <section className="assignmentPage">
         <section className="assignmentDetails">
         <h1 className="assignementNameInDetails">{`${assignmentDetails.assignmentName}`}</h1>
@@ -113,6 +118,8 @@ export default function Assignemnt(){
         <p>File: {assignmentDetails.fileName === undefined ? <span>No file given for this assignment</span> : <span className="assignmentFileName" onClick={() => {handleDownload(assignmentDetails.fileName, "getFile")}}>{assignmentDetails.fileName}</span>}</p>
         <p className="gotoChatRoom"><Link className="gotoChatRoomLink" to = "/chat" state = {{assignmentName: assignmentDetails.assignmentName, currentUser: location.state.currentUser, currentClass: location.state.currentClass, token: location.state.token}}>Go To Chat Room</Link></p>
         </section>
+        {/* This section displays submission details if logged in user is a student,
+        if logged in user is a teacher it displays list of submissions done by all students */}
         <section className="submissionDetails">
         {location.state.role === "Teacher" ?
         <div>
@@ -122,6 +129,7 @@ export default function Assignemnt(){
         </div>
          : 
         <div>
+            {/* This div contains a form to submit assignment and submission details */}
             {assignmentDetails.submissionDetails.submittedFile === "" ?<>
             <h2>Submit Assigment</h2>
             <div className="fileUploadSection">

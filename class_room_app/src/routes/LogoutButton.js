@@ -1,4 +1,4 @@
-import './LogoutButton.css'
+import '../css/LogoutButton.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function LogoutButton(props){

@@ -9,7 +9,7 @@ export default function CreateClass(){
     async function createClass(e){
         e.preventDefault();
         const currentUser = location.state.email;
-        let response = await fetch("http://192.168.0.102:4000/api/createClass", {
+        let response = await fetch("http://localhost:4000/api/createClass", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

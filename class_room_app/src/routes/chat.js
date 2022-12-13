@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-import "./chat.css"
+import "../css/chat.css"
 let sckt;
 export default function Chat(){
     const navigate = useNavigate()
@@ -10,11 +10,12 @@ export default function Chat(){
     const [ message, setMessage] = useState("");
     const [ name, setName ] = useState(null);
     const messagesEndRef = useRef(null)
+    /* This function gets all messages sent in this conversation from the server */
     async function getPreviousChat(){
         const currClass = location.state.currentClass;
         const assignmentName = location.state.assignmentName;
         const currentUser = location.state.currentUser;
-        let response = await fetch("http://192.168.0.102:4000/api/getPreviousChat", {
+        let response = await fetch("http://localhost:4000/api/getPreviousChat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -28,6 +29,7 @@ export default function Chat(){
         setName(response.userName);
         setMessages(response.messages);
     }
+    /* This function sends message to all everyone in that classroom */
     function sendMessage(e){
         if(message === "")
             return;
@@ -37,8 +39,9 @@ export default function Chat(){
         setMessage("");
         
     }
+    /* This function sets up the socket and joins the converstion for that assignment */
     function setUpSocket(){
-        const socket = io("http://192.168.0.102:8080");
+        const socket = io("http://localhost:8080");
         socket.emit("joinAssignmentChat", location.state.assignmentName);
         return socket;
     }
