@@ -5,7 +5,7 @@ const User = new mongoose.Schema(
         name: { type: String, required: true},
         email: { type: String, required: true},
         password: {type: String, required: true},
-        /* classes array contains all the claases user is joined in */
+        /* classes array contains all the classes user is joined in */
         classes: [{ role: {type: String}, classCode: {type: String}, className: {type: String} }],
 
         /* assignments array will contain all assignments for this user */
