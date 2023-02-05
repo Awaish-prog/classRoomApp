@@ -17,7 +17,7 @@ export default function Submission(){
     /* This fuctions sends request to download the file uplaoded by the student */
     async function handleDownload(fileName, endPoint){
         const currentUser = location.state.currentUser
-        const res = await fetch(`http://192.168.0.102:4000/api/${endPoint}`, {
+        const res = await fetch(`/api/${endPoint}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export default function Submission(){
         const assignmentName = location.state.assignmentName;
         const email = location.state.submitterEmail;
         const currentUser = location.state.currentUser
-        let response = await fetch("http://192.168.0.102:4000/api/getSubmissionDetails", {
+        let response = await fetch("/api/getSubmissionDetails", {
             method: "POST",
             headers : {
                 "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export default function Submission(){
         setRemarksList((prev) => {
             return [...prev, remarks];
         });
-        await fetch("http://192.168.0.102:4000/api/setRemarks", {
+        await fetch("/api/setRemarks", {
             method: "POST",
             headers : {
                 "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export default function Submission(){
         const email = location.state.submitterEmail;
         const currentUser = location.state.currentUser
         setGivenGrades(grades);
-        await fetch("http://localhost:4000/api/setGrades", {
+        await fetch("/api/setGrades", {
             method: "POST",
             headers : {
                 "Content-Type": "application/json",

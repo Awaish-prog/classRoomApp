@@ -15,7 +15,7 @@ export default function Chat(){
         const currClass = location.state.currentClass;
         const assignmentName = location.state.assignmentName;
         const currentUser = location.state.currentUser;
-        let response = await fetch("http://localhost:4000/api/getPreviousChat", {
+        let response = await fetch("/api/getPreviousChat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

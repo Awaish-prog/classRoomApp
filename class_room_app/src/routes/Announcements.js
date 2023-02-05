@@ -5,7 +5,7 @@ export default function Announcements({role, toggleAnnouncementsList, currentCla
     const [ announcementList, setAnnouncementList] = useState([]); // This variable contains all announcements
     /* This function takes a new announcement made by a teacher and sends request to update the announcements list in the database */
     async function updateAnnouncements(announcement){
-        await fetch("http://localhost:4000/api/updateAnnouncements", {
+        await fetch("/api/updateAnnouncements", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export default function Announcements({role, toggleAnnouncementsList, currentCla
     }
     /* This function gets all the announcements made in this class and updates the announcements list */
     async function getAnnouncementsList(currClass){
-        let response = await fetch("http://localhost:4000/api/getAnnouncementsList", {
+        let response = await fetch("/api/getAnnouncementsList", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function Announcements({role, toggleAnnouncementsList, currentCla
         setAnnouncementList((prevAnnouncementList) => {
             return prevAnnouncementList.filter(listItem => listItem.announcement !== announcement)
         })
-        await fetch("http://localhost:4000/api/deleteAnnouncement", {
+        await fetch("/api/deleteAnnouncement", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

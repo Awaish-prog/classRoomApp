@@ -10,7 +10,7 @@ export default function SignUp(){
     async function signUpUser(e){
         
         e.preventDefault();
-        const response = await fetch("https://class-room-app-server.vercel.app/api/signUpUser", {
+        const response = await fetch("https://class-room-server.onrender.com/api/signUpUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

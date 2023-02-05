@@ -18,7 +18,7 @@ export default function Classdashboard(){
     const navigate = useNavigate();
     /* This function gets list of all class members */
     async function getMembersList(currClass, currentUser){
-        let response = await fetch("http://localhost:4000/api/getMemberslist", {
+        let response = await fetch("/api/getMemberslist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export default function Classdashboard(){
         setStudents((prev) => {
             return prev.filter(student => student.student.email !== leavingUser);
         })
-        const response = await fetch("http://localhost:4000/api/leaveClassRoom", {
+        const response = await fetch("/api/leaveClassRoom", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

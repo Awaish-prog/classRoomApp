@@ -15,7 +15,7 @@ export default function Assignemnt(){
         const assignmentName = location.state.assignmentName;
         const currClass = location.state.currentClass;
         const currUser = location.state.currentUser;
-        let details = await fetch("http://localhost:4000/api/getAssignmentDetails", {
+        let details = await fetch("/api/getAssignmentDetails", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Assignemnt(){
     /* This function will send a request to download a assignment file */
     async function handleDownload(fileName, endPoint){
         const currentUser = location.state.currentUser;
-        const res = await fetch(`http://localhost:4000/api/${endPoint}`, {
+        const res = await fetch(`/api/${endPoint}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export default function Assignemnt(){
             return {...prev, submissionDetails: {submittedFile: "", remarks: [], grades: "Not graded yet"}};
         })
         const currentUser = location.state.currentUser;
-        await fetch("http://localhost:4000/api/deleteThisSubmission", {
+        await fetch("/api/deleteThisSubmission", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export default function Assignemnt(){
         data.append("currentUser", currUser);
         data.append("assignmentName", assignmentName);
         data.append("className", currClass);
-        let response = await fetch("http://localhost:4000/api/postSubmission", {
+        let response = await fetch("/api/postSubmission", {
             method: "POST",
             headers: {
                 "x-access-token": location.state.token,

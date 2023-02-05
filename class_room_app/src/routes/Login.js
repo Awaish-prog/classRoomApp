@@ -8,7 +8,7 @@ export default function Login(){
     const navigate = useNavigate();
     async function loginUser(e){
         e.preventDefault();
-        const response = await fetch("http://localhost:4000/api/loginUser", {
+        const response = await fetch("/api/loginUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

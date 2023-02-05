@@ -19,7 +19,7 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
     async function getAssigmentsList(){
         const currClass = currentClass
         if(currClass !== null){
-            let response = await fetch("http://localhost:4000/api/getAssignmentsList", {
+            let response = await fetch("/api/getAssignmentsList", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
         data.append("dueDate", dueDate);
         data.append("currentUser", currentUser);
         data.append("currentClass", currentClass);
-        await fetch("http://localhost:4000/api/postAssignment", {
+        await fetch("/api/postAssignment", {
             method: "POST",
             headers: {
                 "x-access-token": token,
@@ -67,7 +67,7 @@ export default function AssignmentsList({ role, currentClass, currentUser, token
         setAssignmentsList((prevAssignmentsList) => {
             return prevAssignmentsList.filter(prevAssignment => prevAssignment.assignmentName !== assignmentName);
         })
-        await fetch("http://localhost:4000/api/deleteAssignment", {
+        await fetch("/api/deleteAssignment", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

@@ -11,7 +11,7 @@ export default function JoinClass(){
     async function joinClass(e){
         e.preventDefault();
         const currentUser = location.state.email;
-        let response = await fetch("http://localhost:4000/api/joinClass", {
+        let response = await fetch("/api/joinClass", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

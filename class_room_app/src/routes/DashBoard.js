@@ -10,7 +10,7 @@ export default function DashBoard(){
     const location = useLocation();
     async function getClasslist(currUser){
         
-        let response = await fetch("http://localhost:4000/api/getClassList", {
+        let response = await fetch("/api/getClassList", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
