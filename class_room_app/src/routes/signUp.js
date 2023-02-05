@@ -10,7 +10,7 @@ export default function SignUp(){
     async function signUpUser(e){
         
         e.preventDefault();
-        const response = await fetch("http://localhost:4000/api/signUpUser", {
+        const response = await fetch("https://class-room-app-server.vercel.app/api/signUpUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
