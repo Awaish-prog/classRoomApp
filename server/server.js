@@ -15,6 +15,7 @@ const io = require("socket.io")(8080, {
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')))
 app.use(express.json());
+require('dotenv').config()
 let bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,7 +40,7 @@ const submissions = multer.diskStorage({
 })
 const submission = multer({ storage: submissions }).single("file");
 // connect to mongodb locally
-mongoose.connect("mongodb://localhost:27017/Users");
+mongoose.connect(process.env.DB_CONNECT);
 
 // This function will authenticate user with json web token
 function verifyUser(token, user){
@@ -47,7 +48,7 @@ function verifyUser(token, user){
         return false;
     }
     try{
-        const decoded = jwt.verify(token, "asdhg634qrg54qwbjhwebd384y734t3qyegwqehnu");
+        const decoded = jwt.verify(token, process.env.KEY);
         if(decoded.email === user.email){
             return true;
         }
@@ -73,7 +74,7 @@ app.post("/api/signUpUser", async (req, res) => {
         });
         const token = jwt.sign({
             email: user.email
-        }, "asdhg634qrg54qwbjhwebd384y734t3qyegwqehnu");
+        }, process.env.KEY);
         res.json({ status: 'ok', user: "Inserted", token});
     }
 });
@@ -87,7 +88,7 @@ app.post("/api/loginUser", async (req, res) => {
         }
         const token = jwt.sign({
             email: user.email
-        }, "asdhg634qrg54qwbjhwebd384y734t3qyegwqehnu");
+        }, process.env.KEY);
         res.json({ status: 'ok', login: "success", token});
     });
 });
@@ -652,9 +653,7 @@ io.on("connection", (socket) => {
         socket.join(assignmentName);
     })  
 })
-app.get("*", (req, res) => {
-    res.sendFile("index.html", {root: path.join(__dirname, "build")})
-})
+
 
 app.listen(4000, () => {
     console.log("Server runnning");
