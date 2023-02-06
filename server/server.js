@@ -13,7 +13,7 @@ const io = require("socket.io")(8080, {
     }
 });
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'static')))
 app.use(express.json());
 require('dotenv').config()
 let bodyParser = require('body-parser');

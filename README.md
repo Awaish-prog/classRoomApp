@@ -10,7 +10,7 @@
 
 ### How to use this App
     
-You can use this app through this link: [Classroom App Demo](http://143.244.185.181)
+You can use this app through this link: [Classroom App Demo](http://44.205.20.25:4000/)
 
     Here are few tips to test its functionalities
     1. Create multiple users by signing up.
