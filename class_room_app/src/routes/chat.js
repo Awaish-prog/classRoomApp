@@ -41,7 +41,7 @@ export default function Chat(){
     }
     /* This function sets up the socket and joins the converstion for that assignment */
     function setUpSocket(){
-        const socket = io("http://localhost:8080");
+        const socket = io("http://44.205.20.25:8080");
         socket.emit("joinAssignmentChat", location.state.assignmentName);
         return socket;
     }
